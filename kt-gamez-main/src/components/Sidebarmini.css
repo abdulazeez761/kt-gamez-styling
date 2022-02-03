@@ -1,0 +1,5 @@
+.minibar{
+    display: flex;
+    background: cadetblue;
+    position: relative;
+}

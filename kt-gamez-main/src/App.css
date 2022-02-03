@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+
+.App {
+  /* height:100% !important; */
+  min-height: 100%;
+  width: 100%;
+  background: var(--bg);
+  font-family: 'PT Serif', serif;
+    /* overflow-y: scroll;
+  overflow-x: hidden; */
+}
+
+:root {
+  --black: #202020;
+  --red: #fc2425;
+  --black1: #27282a;
+  --black3: #9c9c9c;
+  --white: #fff;
+  --bg:#1d1d1d;
+  --bluish: #2d384a;
+}

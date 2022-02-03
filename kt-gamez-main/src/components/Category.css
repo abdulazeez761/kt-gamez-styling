@@ -1,0 +1,113 @@
+*{
+  margin :0;
+  padding: 0;
+}
+
+.category {
+  width: 100%;
+  min-height: 100vh;
+}
+.dropdown{
+  width: 200px;
+  margin: 100px auto; 
+  position: relative;
+  left: 38%;
+  user-select: none;
+  
+}
+.dropdown .dropdown-btn {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: var(--red);
+  box-shadow: 3px 3px 10px 6px rgb(0, 0, 0, 0.06);
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.4em;
+}
+.dropdown .dropdown-content{
+  position: absolute;
+  background: var(--bluish);
+  top: 110%;
+  left: 0;
+  padding: 10px;
+  box-shadow: 3px 3px 10px 6px rgb(0, 0, 0 ,0.06);
+  font-weight: 500;
+  color: #333;
+  border-radius: 0.4em;
+  z-index: 10;
+}
+.dropdown .dropdown-content .dropdown-item {
+  padding: 10px;
+  color: #fff;
+}
+.dropdown-item:hover {
+  background-color: var(--black1);
+  cursor: pointer;
+  border-radius: 0.4em;
+}
+.active-category {
+  position: absolute;
+  font-size: 2em;
+  color: white;
+  border-bottom: 1px solid var(--red );
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  grid-template-rows: repeat(4, minmax(280px, 1fr));
+  grid-gap: 2em;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.card-content{
+  background-color: #333;
+  padding: 0.5em;
+  height: 17em;
+  border-radius: 1em;
+}
+.card-img {
+  transition: all 1s;
+}
+.card-img img {
+  width: 360px;
+  height: 200px;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+} 
+
+.card-img:hover{
+  transform: scale(1.1);
+}
+.game-info{
+  position: relative;
+  bottom: 11.5em;
+  left: 1em;
+  z-index: 2;
+  color: rgb(199, 199, 199);
+  background-color: rgb(116, 116, 116);
+  opacity: 85%;
+  border-radius:2em;
+  width: 10em;
+
+}
+.paragraphs{
+  text-transform: capitalize;
+  position: relative;
+  left: 15%;
+  text-align: start;
+  color: #fff;
+  font-size: medium;
+  font-weight: bolder;
+}
+
+.category-genre{
+  font-size: 0.9em;
+}
