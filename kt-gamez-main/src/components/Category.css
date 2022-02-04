@@ -107,7 +107,16 @@
   font-size: medium;
   font-weight: bolder;
 }
-
+.paragraphs .category-image{
+  position: absolute;
+  left: -3em;
+}
+.paragraphs .category-image img{
+  width: 2em;
+  border-radius: 2em;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
 .category-genre{
   font-size: 0.9em;
 }

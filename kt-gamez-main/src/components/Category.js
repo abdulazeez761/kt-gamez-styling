@@ -1,40 +1,47 @@
 import React , {useState , useEffect } from "react";
-
+import action from "../asserts/images/categoryImages/action.jpg";
+import educational from "../asserts/images/categoryImages/educational.jpg";
+import puzzle from "../asserts/images/categoryImages/puzzle.jpg";
+import SportsAndRacing from "../asserts/images/categoryImages/racing.jpg";
+import arcade from "../asserts/images/categoryImages/arcad.jpg";
 import "./Category.css";
 function Category() {
     const [active , setActive] =useState(false)
     const [button , setButton] = useState('all')
+    const [categoryImage , setCategoryImage] = useState()
     const [data , setData] =useState([])
+ 
     useEffect( async()=>{
         const data = await fetch('https://ktgamez.com/storage/games.json')
         const items = await data.json()
         setData(items)
     } , [setData])
-
+  
     const handleClickAction = ()=>{
         setButton('Action')
-     
+        setCategoryImage(action)
     }
     const handleClickAll = ()=>{
         setButton('all')
+        setCategoryImage(action)
      
     }
     const handleClicEducational = ()=>{
         setButton('Educational')
-        
+        setCategoryImage(educational)
         
     }
     const handleClicArcade = ()=>{
         setButton('Arcade')
-        
+        setCategoryImage(arcade)
     }
     const handleClicSports = ()=>{
         setButton('Sports & Racing')
-        
+        setCategoryImage(SportsAndRacing)
     }
     const handleClicPuzzle = ()=>{
         setButton('Puzzle')
-        
+        setCategoryImage(puzzle)
     }
 
   return (
@@ -75,7 +82,8 @@ function Category() {
                //or :  if(key < 10){return}
                //even if tried to do this style= {{display : key <10 ? 'block' : 'none'}}
               
-             if ( button === 'all' || button === data.genre_name){
+            if ( button === 'all' && data.genre_status ==='Active'){
+                
                 return(
                     <div className="card-content" key={key}>  
                         <div className="card-img">
@@ -83,6 +91,8 @@ function Category() {
                             <p className="game-info">kt points :100</p>
                         </div>
                         <div className="paragraphs">
+                           
+                        <div className="category-image"><img src= {data.game_cover_url} style={{borderRadius: '1em' , width : '2em' , height : '2em'}}/> </div>
                         <div className="card-inner-title">
                             <p>{data.game_name}</p>
                         </div>
@@ -96,12 +106,32 @@ function Category() {
                     </div>
                 )
                 
+              } else if(button === data.genre_name && data.genre_status ==='Active'){
+                return(
+                    <div className="card-content" key={key}>  
+                        <div className="card-img">
+                            <img src={data.game_cover_url} alt={data.game_name} />
+                            <p className="game-info">kt points :100</p>
+                        </div>
+                        <div className="paragraphs">
+                        <div className="category-image"><img src={categoryImage}/> </div>
+                        <div className="card-inner-title">
+                            <p>{data.game_name}</p>
+                        </div>
+                        <div>
+                        <p className="category-genre">
+                           category :  {data.genre_name}
+                        </p>
+                        </div>
+                        </div>
+                      
+                    </div>
+                )
               }
               
               
         } 
         )
-        //.slice(0,10)
      }
       </div>
      
@@ -110,3 +140,7 @@ function Category() {
 }
 
 export default Category;
+/*     <div className="category-image"><img src={data.genre_name === 'Action' || data.genre_name === 'Educational' || 
+                        data.genre_name === 'Puzzle' || data.genre_name === 'Arcade'  ||
+                        data.genre_name === 'Sports & Racing'?data.game_cover_url  : null }/> </div>
+                        */
